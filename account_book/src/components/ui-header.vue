@@ -9,7 +9,6 @@ import {
   TooltipComponent,
   GridComponent,
   DatasetComponent,
-
   TransformComponent
 } from 'echarts/components';
 // 标签自动布局，全局过渡动画等特性
@@ -29,7 +28,6 @@ echarts.use([
   UniversalTransition,
   CanvasRenderer
 ]);
-
 
 export default{
     props: ['zsz', 'szbData', 'zzbData'],

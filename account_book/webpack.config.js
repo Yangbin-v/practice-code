@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,7 +12,7 @@ module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
@@ -34,6 +35,18 @@ module.exports = {
                 ]
               }
         ]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all",  // async表示抽取异步模块，all表示对所有模块生效，initial表示对同步模块生效
+            cacheGroups: {
+                vendors: {  // 抽离第三方插件
+                    test: /[\\/]node_modules[\\/]/,     // 指定是node_modules下的第三方包
+                    name: "vendors",
+                    priority: -10                       // 抽取优先级
+                },
+            }
+        }
     },
     plugins: [
         new VueLoaderPlugin(),
