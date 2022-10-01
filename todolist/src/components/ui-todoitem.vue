@@ -11,6 +11,9 @@
 </template>
 
 <script>
+/**
+ * todo item 组件
+ */
 export default {
     data() {
         return {
@@ -18,9 +21,16 @@ export default {
         }
     },
     methods: {
+        /**
+         * 发送删除 todo 事件
+         */
         deleteItem() {
             this.$emit('deleteItem', this.item.id);
         },
+
+        /**
+         * 发送改变 todo 状态事件
+         */
         stateChange() {
             this.$emit('state', this.item.id);
         }

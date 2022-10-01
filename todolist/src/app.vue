@@ -1,6 +1,10 @@
 <script>
 import uiInput from "./components/ui-input.vue";
 import uiTodoItem from "./components/ui-todoitem.vue";
+
+/**
+ * todolist app 组件
+ */
 export default {
     data() {
         return {
@@ -15,6 +19,9 @@ export default {
         this.getStorage();
     },
     methods: {
+        /**
+         * 获取浏览器本地存储的数据
+         */
         getStorage() {
             let list = window.localStorage.getItem('todolist');
             if (list) {
@@ -22,13 +29,27 @@ export default {
             }
             console.log(this.todoList);
         },
+
+        /**
+         * 设置浏览器本地存储
+         */
         setStorage() {
             window.localStorage.setItem('todolist', JSON.stringify(this.todoList));
         },
+
+        /**
+         * ui-input enter 事件处理函数
+         * @param {*} msg 输入的文本
+         */
         enterMessage(msg) {
             this.todoList.unshift({text: msg, id: new Date().getTime(), date: new Date(), state: true});
             this.setStorage();
         },
+
+        /**
+         * 删除指定 id 的 todo
+         * @param {*} id todo 的 id
+         */
         deleteItem(id) {
             for(let i = 0; i < this.todoList.length; i++) {
                 if (this.todoList[i].id === id) {
@@ -38,6 +59,11 @@ export default {
             }
             this.setStorage();
         },
+
+        /**
+         * 改变指定 id 的 todo 状态
+         * @param {*} id todo 的 id
+         */
         stateChang(id) {
             for(let i = 0; i < this.todoList.length; i++) {
                 if (this.todoList[i].id === id) {

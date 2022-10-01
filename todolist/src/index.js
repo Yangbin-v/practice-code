@@ -1,6 +1,6 @@
 /**
- * author: yang
- * date: 2022.02.22
+ * @author: yang
+ * @date: 2022.02.22
  */
 
 import {createApp} from 'vue';

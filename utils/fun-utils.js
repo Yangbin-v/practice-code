@@ -1,6 +1,6 @@
 /**
  * @file util
- * @describe 有趣的工具函数
+ * @describe 一些工具函数
  */
 
 /**

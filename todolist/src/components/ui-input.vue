@@ -10,6 +10,9 @@
 
 
 <script>
+/**
+ * input 组件
+ */
 export default {
     emits: ['enter'],
     data() {
@@ -18,6 +21,9 @@ export default {
         }
     },
     methods: {
+        /**
+         * 发送按下 enter 键事件
+         */
         end() {
             if (this.message.length > 20) {
                 alert('最多20个字');
