@@ -7,7 +7,7 @@
  * 原数组随机抽取排序
  * @param {array} 数组
  */
- function randomArray(array) {
+function randomArray(array) {
     let length = array.length;
 
     for (let i = length - 1; i >= 0; i--) {
